@@ -2,6 +2,7 @@ from IPython.display import clear_output
 from matplotlib import pyplot as plt
 import torch
 from torch import nn
+from tqdm import tqdm
 
 def flatten(list_):
     return [item for sublist in list_ for item in sublist]
@@ -45,7 +46,7 @@ def train(
 
     epoch_loss = 0
     history = []
-    for i, batch in enumerate(iterator):
+    for i, batch in tqdm(enumerate(iterator)):
         src = batch.src
         trg = batch.trg
 
